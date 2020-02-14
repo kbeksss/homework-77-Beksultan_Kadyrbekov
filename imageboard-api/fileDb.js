@@ -43,5 +43,11 @@ module.exports = {
     async addThread(thread){
         thread.id = nanoid();
         thread.responses = [];
+        data.push(thread);
+        this.save();
     },
+    async save(){
+        const fileContents = JSON.stringify(data, null, 2);
+        await writeFile(filename, fileContents)
+    }
 };

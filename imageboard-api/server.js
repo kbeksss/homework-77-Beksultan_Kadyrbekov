@@ -9,7 +9,8 @@ const imageBoarder = require('./app/imageboarder');
 const port = 8000;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.static('public'));
+
 app.use('/board', imageBoarder);
 
 const run = async () => {
