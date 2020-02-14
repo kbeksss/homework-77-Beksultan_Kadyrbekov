@@ -33,7 +33,6 @@ router.post('/', upload.single('image'), async (req, res) => {
     if(!thread.description){
         return res.status(404).send({error: 'Enter your description'})
     }
-    console.log(thread);
     await fileDb.addThread(thread);
     res.send(thread.id);
 });
